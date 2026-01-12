@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
 
     'accounts.apps.AccountsConfig',
     'courses.apps.CoursesConfig',
 ]
+
+# 4cd09e5cf4cc42cf9fdfec7a79712d4e8bf7c644
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -115,17 +118,17 @@ USE_I18N = True
 USE_TZ = True
 
 
-AUTH_USER_MODEL = 'accounts.User'
+
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
